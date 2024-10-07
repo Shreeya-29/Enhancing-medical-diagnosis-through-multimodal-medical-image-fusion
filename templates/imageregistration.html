@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>MMMIF</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/registered.css') }}">
+    <style>
+	@keyframes page-load {
+		from {
+		width: 0;
+		}
+		to {
+		width: 100%;
+		}
+	}
+	.page-loading::before {
+		content: " ";
+		display: block;
+		position: fixed;
+		z-index: 10;
+		height: 5px;
+		width: 100%;
+		top: 0;
+		left: 0;
+		background-color: #06D;
+		animation: page-load ease-out 2s;
+	}
+    </style>
+    <script>
+	document.addEventListener("DOMContentLoaded", function () {
+		var linksToAnimate = document.querySelectorAll(".load-animation-link");
+
+		linksToAnimate.forEach(function (link) {
+			link.addEventListener("click", function (e) {
+			//e.preventDefault(); // Prevent the default link behavior
+			document.body.classList.add("page-loading");
+
+			// Remove the loading class when the content has loaded
+			window.addEventListener("DOMContentLoaded", function () {
+				document.body.classList.remove("page-loading");
+				});
+			});
+		});
+
+		// Use this if you still want the loading animation on beforeunload
+		window.addEventListener("beforeunload", function () {
+			document.body.classList.add("page-loading");
+		});
+	});
+</script>
+    
+</head>
+
+<body>
+    <div class="container">
+        <div class="jumbotron">
+            <h1 class="display-4"> <font size="10">Image Registration </font></h1>
+            
+        </div>
+
+        <div class="row">
+            <div class="col-lg-6 col-md-12 col-sm-12 content">
+                <h2><font size="6">Registered MRI Image</font></h2>
+                <center>
+                    <img src="{{ url_for('static',filename='mri_registered.jpg') }}" id="mri" alt="MRI" class="mri"
+                        style="border:2px solid #87857f;padding:15px; border-radius:10px;">
+                </center>
+            </div>
+            <div class="col-lg-6 col-md-12 col-sm-12 content">
+                <h2><font size="6">Registered CT Image</font></h2>
+                <center>
+                    <img src="{{ url_for('static',filename='ct.jpg') }}" id="ct" alt="CT" class="ct"
+                        style="border:2px solid #87857f;padding:15px; border-radius:10px;">
+                </center>
+            </div>
+        </div>
+	
+
+        <div class="row" style="margin-bottom: 40px;">
+            <div class="col-lg-12 col-md-12 col-sm-12">
+                <center>
+                    <form action="{{ url_for('fusion') }}" method="GET">
+			<!--<div class="progress">
+  				<div class="color"></div>
+			</div>-->
+                        <!-- Adding the btn-blink class to the button for blinking effect -->
+			<!--<a href="your-page.html" class="load-animation-link">Click Me</a> -->
+                        <input type="submit" value="View The Fused Image" class="btn btn-primary btn-blink" class="load-animation-link">
+                    </form>
+                </center>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

@@ -1,0 +1,98 @@
+*{
+    padding: 0;
+    margin:0;
+    font-family: serif;
+}
+
+div.content{
+    height: 100vh;
+}
+
+/*div.image-class{
+    background:url(../images/microscope.jpg);
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+    z-index: 0;
+    opacity: 0.6;
+}*/
+body {
+    animation: backgroundAnimation 10s infinite;
+    color: white;
+    font-family: Arial, sans-serif;
+}
+
+@keyframes backgroundAnimation {
+    0% {
+    background-image: url(../images/medical30.png);
+    }
+
+    33% {
+    background-image: url(../images/medical29.jpeg);
+    }
+
+    66% {
+    background-image: url(../images/medical28.png);
+    }
+
+    100% {
+    background-image: url(../images/medical30.png);
+}
+}
+
+.container-fluid {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.landing-content {
+    animation: fadeInAnimation 2s ease-in;
+}
+
+@keyframes fadeInAnimation {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+.quote-text {
+    animation: blinkAnimation 1s infinite;
+}
+
+@keyframes blinkAnimation {
+    0% {
+        opacity: 0;
+    }
+
+    50% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+div.landing-content{
+    margin:75px auto;
+    z-index: 1;
+    color:#fff;
+}
+
+div.landing-content h2{
+    font-weight: 700;
+    text-shadow: 2px 2px #474242;
+    text-align: center;
+}
+
+div.landing-content p{
+    font-weight: 600;
+    padding: 30px;
+    font-size: 20px;
+    color:#00011a;
+}

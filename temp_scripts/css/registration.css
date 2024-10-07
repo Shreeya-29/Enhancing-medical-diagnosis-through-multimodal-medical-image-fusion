@@ -1,0 +1,32 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: serif;
+}
+
+h2{
+    font-size: 22px;;
+}
+body {
+    background-image: url(../images/medical24.jpeg);
+    background-size: cover; /* or contain depending on your preference */
+    /* Additional background properties if needed */
+}
+
+h2 {
+    animation: shake 0.5s infinite alternate;
+}
+
+@keyframes shake {
+    from {
+        transform: translateX(0);
+    }
+
+    to {
+        transform: translateX(5px);
+    }
+}
+
+.btn-primary:hover {
+    background-color: green;
+}
